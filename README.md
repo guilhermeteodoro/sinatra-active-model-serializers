@@ -1,36 +1,36 @@
-[ ![Codeship Status for SauloSilva/sinatra-active-model-serializers](https://codeship.com/projects/0be149a0-8d56-0132-3f2c-5691319bff63/status?branch=master)](https://codeship.com/projects/60665)
-
 # Sinatra::ActiveModelSerializers
+[ ![Codeship Status for SauloSilva/sinatra-active-model-serializers](https://codeship.com/projects/0be149a0-8d56-0132-3f2c-5691319bff63/status?branch=master)](https://codeship.com/projects/60665) [![Gem Version](https://badge.fury.io/rb/sinatra-active-model-serializers.png)](http://badge.fury.io/rb/sinatra-active-model-serializers)
 
-[![Gem Version](https://badge.fury.io/rb/sinatra-active-model-serializers.png)](http://badge.fury.io/rb/sinatra-active-model-serializers)
+**sinatra-active-model-serializers** is an adapter for modelling more pratically with Active Model Serializers.
 
 This gem has the function of adapt the Active Model Serializers to work in Sinatra from a more practical way with models.
 If do you use everything at the default, just  require `sinatra_active_model_serializers` for serializers work correctly the a json response.
 
 ## Requirements
 
-Ruby 1.9.2 or greater, Sinatra 1.4.5 or greater and Sinatra Contrib 1.4.2 or greater.
+- Ruby 1.9.2 or greater
+- Sinatra 1.4.5 or greater
+- Sinatra Contrib 1.4.2 or greater.
 
 ## Installation
 
+At the command prompt,
+
 `gem install sinatra-active-model-serializers`
 
-or with bundler
+or via bundler
 
 ```
-# Gemfile
-source :rubygems
+# Gemfile.rb
 
-gem 'sinatra'
-gem 'sinatra-contrib'
-gem 'sinatra-active-record'
-gem 'sinatra-active-model-serializers'
+gem 'sinatra-active-model-serializers', '0.1.0'
 ```
 
-## Configure
+## Usage
 
-First you have to being with the active record configured in your system environment correctly. If the environment is not set up, see their [documentation](https://github.com/janko-m/sinatra-activerecord#sinatra-activerecord-extension).
-After is simply do require from our library on your `application.rb`, eg.
+First make sure that Active Record is already configured in the environment. For further reference, see their [documentation](https://github.com/janko-m/sinatra-activerecord#sinatra-activerecord-extension).
+
+The gem is autoloaded with `Bundler.require :default` on your `application.rb`
 
 ```ruby
 require 'rubygems'
@@ -44,11 +44,15 @@ class App < Sinatra::Base
 end
 ```
 
-## Sets
+## Options
 
-#### active_model_serializers
+If you wish to use a serializer other than the default, the following options are available:
 
-This attribute is an object, all inserted configuration this object it will be passed on to Active Model Serializers, eg.
+### `active_model_serializers`: 
+
+To define a custom root for your response:
+
+Can be set globally
 
 ```
 set :active_model_serializers, { root: false }
